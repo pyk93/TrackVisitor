@@ -32,5 +32,10 @@ public class Counter {
 	public String getUrl() {
 		return url;
 	}
+	
+	public Long increase() {
+		count += 1;
+		return count;
+	}
 
 }
