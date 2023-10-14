@@ -6,17 +6,17 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Counter {
+public class CounterEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private Long count;
 	private String url;
 
-	protected Counter() {
+	protected CounterEntity() {
 	}
 
-	public Counter(String url) {
+	public CounterEntity(String url) {
 		this.url = url;
 		this.count = (long) 0;
 	}
