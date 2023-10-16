@@ -8,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class TrackVisitorApplicationTests {
-	
+
 	@Autowired
 	private CounterController controller;
 
