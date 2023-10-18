@@ -20,6 +20,10 @@ public class CounterService {
 	
 	@Transactional
 	public void addCounter(String url){
+		
+		
+		
+		
 		LocalDate date = dateTime.today();
 		CounterEntity counter = repository.findByUrlAndCountDate(url,date).orElseGet(()->createCounter(url,date));
 		counter.increase();
