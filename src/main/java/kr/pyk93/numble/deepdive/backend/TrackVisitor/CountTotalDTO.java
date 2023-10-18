@@ -8,7 +8,7 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public class CountTotalDTO {
+public class CountTotalDTO  {
 	private final String url;
 	private final Long count;
 }

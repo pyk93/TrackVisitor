@@ -75,12 +75,17 @@ public class CounterController {
 	public Map<String,Object> getWeeklyStatics(@PathVariable String url)
 	{
 
-		CountDayDTO[] statics = new CountDayDTO[NUMBER_OF_DAYS_RETURN];
+		@SuppressWarnings("unchecked")
+		Map<String,Object>[] statics = (Map<String,Object>[])new Map[NUMBER_OF_DAYS_RETURN];
 		LocalDate today = dateTime.today();
 
 		for(int i=0;i<NUMBER_OF_DAYS_RETURN; i++)
 		{
-			statics[NUMBER_OF_DAYS_RETURN - 1 - i] = service.getCounterDay(url, today.minusDays(i));
+			
+			CountDayDTO obj = service.getCounterDay(url, today.minusDays(i));
+			statics[NUMBER_OF_DAYS_RETURN - 1 - i] = new HashMap<String,Object>();
+			statics[NUMBER_OF_DAYS_RETURN - 1 - i].put("date", obj.getDateStr());
+			statics[NUMBER_OF_DAYS_RETURN - 1 - i].put("count", obj.getCount());
 		}
 		Map<String,Object> retVal = new HashMap<String,Object>();
 		retVal.put("url", url);
